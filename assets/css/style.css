@@ -754,6 +754,14 @@ html {
         scroll-behavior: auto !important;
     }
 
+    #click-ripple-layer .page-ripple {
+        animation-duration: 800ms !important;
+    }
+
+    .interactive-btn .ripple {
+        animation-duration: 500ms !important;
+    }
+
     .blob {
         animation: none !important;
         filter: blur(40px) !important;
