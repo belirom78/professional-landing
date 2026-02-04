@@ -455,6 +455,24 @@ body {
     transition:
         transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.modal-content h1,
+.modal-content h2,
+.modal-content h3 {
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.modal-content p,
+.modal-content li {
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content a {
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .modal.is-open .modal-content {
