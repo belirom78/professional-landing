@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессионалы - Ликвидация фирм в Омске | Регистрация ООО, Реорганизация</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ликвидация ООО и ИП в Омске. Реорганизация компаний, регистрация юридических лиц, изменения в ЕГРЮЛ. Официально, с гарантией. Звоните: +7 (965) 398-67-77">
+    <meta name="keywords" content="ликвидация ООО Омск, закрыть фирму Омск, реорганизация компании, регистрация ООО, ЕГРЮЛ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.ru/"><!-- TODO: заменить на реальный домен -->
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Профессионалы - Ликвидация фирм в Омске">
+    <meta property="og:description" content="Ликвидация ООО и ИП в Омске. Реорганизация компаний, регистрация юридических лиц, изменения в ЕГРЮЛ. Официально, с гарантией.">
+    <meta property="og:url" content="https://yourdomain.ru/"><!-- TODO: заменить на реальный домен -->
+    <meta property="og:image" content="https://yourdomain.ru/og-image.jpg"><!-- TODO: заменить на реальную картинку -->
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Профессионалы - Консалтинговая компания",
+      "description": "Ликвидация фирм, реорганизация компаний, регистрация юридических лиц в Омске",
+      "telephone": "+7-965-398-67-77",
+      "areaServed": {
+        "@type": "City",
+        "name": "Омск"
+      },
+      "priceRange": "от 3000₽",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Омск",
+        "addressCountry": "RU"
+      }
+    }
+    </script>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            background: #0a0e1a;
+        }
+        
+        /* Animated Background Container */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0e1a;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        /* Animated Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.7;
+            will-change: transform;
+            mix-blend-mode: screen;
+        }
+        
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #1e40af 0%, #1e3a8a 50%, transparent 100%);
+            top: -10%;
+            left: -10%;
+            animation: blob1Move 25s ease-in-out infinite;
+        }
+        
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #3b82f6 0%, #2563eb 50%, transparent 100%);
+            top: 20%;
+            right: -5%;
+            animation: blob2Move 20s ease-in-out infinite;
+        }
+        
+        .blob-3 {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, #1e3a8a 0%, #172554 50%, transparent 100%);
+            bottom: -15%;
+            left: 10%;
+            animation: blob3Move 30s ease-in-out infinite;
+        }
+        
+        .blob-4 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #2563eb 0%, #1e40af 50%, transparent 100%);
+            top: 50%;
+            right: 15%;
+            animation: blob4Move 22s ease-in-out infinite;
+        }
+        
+        @keyframes blob1Move {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            33% { transform: translate3d(100px, -50px, 0) scale(1.1); }
+            66% { transform: translate3d(-50px, 100px, 0) scale(0.9); }
+        }
+        
+        @keyframes blob2Move {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            33% { transform: translate3d(-80px, 100px, 0) scale(1.15); }
+            66% { transform: translate3d(50px, -80px, 0) scale(0.95); }
+        }
+        
+        @keyframes blob3Move {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            33% { transform: translate3d(-100px, -100px, 0) scale(1.05); }
+            66% { transform: translate3d(80px, 50px, 0) scale(1.12); }
+        }
+        
+        @keyframes blob4Move {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            33% { transform: translate3d(70px, 90px, 0) scale(0.9); }
+            66% { transform: translate3d(-90px, -70px, 0) scale(1.08); }
+        }
+        
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+        
+        #cursor-spotlight {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(96, 165, 250, 0.3) 30%, transparent 70%);
+            pointer-events: none;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            filter: blur(70px);
+            mix-blend-mode: screen;
+            opacity: 0.8;
+        }
+        
+        #cursor-spotlight-secondary {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            filter: blur(50px);
+            mix-blend-mode: screen;
+            opacity: 0.7;
+        }
+        
+        .gradient-bg {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tilt-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+        }
+        
+        .tilt-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .tilt-card:hover::before {
+            opacity: 1;
+        }
+        
+        .tilt-card:hover {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tilt-card-inner {
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        
+        .tilt-card-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            filter: blur(20px);
+            transform: translate(-50%, -50%);
+        }
+        
+        .tilt-card:hover .tilt-card-glow {
+            opacity: 1;
+        }
+        
+        /* Hero Image Placeholder */
+        .hero-image-placeholder {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            will-change: transform;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            outline: none;
+        }
+        
+        .hero-image img {
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+            border: none;
+            margin: -5%;
+        }
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .hero-parallax-container {
+            will-change: transform;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+            will-change: transform;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sticky-mobile-btn {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideUpMobile 0.3s ease;
+        }
+        
+        @keyframes slideUpMobile {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #60a5fa;
+        }
+        
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background: currentColor;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-icon::before {
+            width: 16px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .faq-icon::after {
+            width: 2px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .faq-item.active .faq-icon::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+            opacity: 0;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.5) 0%, transparent 100%);
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 10;
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.2) rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .form-message.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #86efac;
+        }
+        
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5;
+        }
+        
+        .form-message.info {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #93c5fd;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .map-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            animation: slideInLeft 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        .policy-link {
+            color: #93c5fd;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .policy-link:hover {
+            color: #60a5fa;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .blob {
+                animation: none !important;
+                filter: blur(40px) !important;
+            }
+            
+            #cursor-spotlight,
+            #cursor-spotlight-secondary {
+                display: none !important;
+            }
+            
+            .noise-overlay {
+                display: none !important;
+            }
+            
+            .parallax-content,
+            .hero-parallax-container,
+            .animated-bg {
+                transform: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            #cursor-spotlight,
+            #cursor-spotlight-secondary {
+                display: none !important;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="blob blob-1" id="blob1"></div>
+        <div class="blob blob-2" id="blob2"></div>
+        <div class="blob blob-3" id="blob3"></div>
+        <div class="blob blob-4" id="blob4"></div>
+    </div>
+    
+    <div class="noise-overlay"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div id="cursor-spotlight"></div>
+    <div id="cursor-spotlight-secondary"></div>
+    
+    <div class="min-h-screen gradient-bg text-white">
+        <header class="container mx-auto px-4 py-6 relative z-10">
+            <nav class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 border-2 border-white rounded flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold">Профессионалы</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="hover:text-blue-200 transition">Главная</a>
+                    <a href="#services" class="hover:text-blue-200 transition">Услуги</a>
+                    <a href="#prices" class="hover:text-blue-200 transition">Цены</a>
+                    <a href="#contacts" class="hover:text-blue-200 transition">Контакты</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+79653986777" class="text-sm md:text-base font-semibold hover:text-blue-200 transition">+7 (965) 398-67-77</a>
+                    <button class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                        🇷🇺
+                    </button>
+                    <div class="hamburger md:hidden" onclick="toggleMobileMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="flex justify-end mb-8">
+                <span class="text-4xl cursor-pointer" onclick="toggleMobileMenu()">&times;</span>
+            </div>
+            <div class="flex flex-col space-y-6 text-2xl">
+                <a href="#" class="hover:text-blue-200 transition" onclick="toggleMobileMenu()">Главная</a>
+                <a href="#services" class="hover:text-blue-200 transition" onclick="toggleMobileMenu()">Услуги</a>
+                <a href="#prices" class="hover:text-blue-200 transition" onclick="toggleMobileMenu()">Цены</a>
+                <a href="#contacts" class="hover:text-blue-200 transition" onclick="toggleMobileMenu()">Контакты</a>
+            </div>
+        </div>
+
+        <section class="container mx-auto px-4 py-16 md:py-24 relative z-10" id="hero-section">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 parallax-content">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Ликвидация фирм в Омске
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold opacity-90">
+                        Официально и с гарантией
+                    </h2>
+                    <p class="text-lg opacity-80 leading-relaxed">
+                        Закроем вашу компанию «под ключ» — официально и в кратчайшие сроки.
+                    </p>
+                    <p class="text-base opacity-80">
+                        Добровольная и упрощенная ликвидация юридических лиц
+                    </p>
+                    <button onclick="openModal()" class="btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg">
+                        <span>ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</span>
+                    </button>
+                </div>
+                
+                <div class="hidden md:block hero-parallax-container" id="hero-parallax-container">
+                    <div class="hero-image">
+                        <img src="img/hero-side.png" alt="Юридическое сопровождение" loading="eager" decoding="async">
+                        <!-- Лёгкий градиент для глубины (без текста) -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Почему нам доверяют</h2>
+                    <p class="text-lg opacity-80">Работаем в сфере юридического консалтинга с гарантией результата</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-effect rounded-2xl p-6 text-center transition hover:scale-105">
+                        <div class="stat-number mb-2">10+</div>
+                        <p class="text-lg font-semibold mb-2">лет практики</p>
+                        <p class="text-sm opacity-70"><!-- TODO: заменить --> Опыт работы с юридическими лицами в Омске</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 text-center transition hover:scale-105">
+                        <div class="stat-number mb-2">300+</div>
+                        <p class="text-lg font-semibold mb-2">проектов</p>
+                        <p class="text-sm opacity-70"><!-- TODO: заменить --> Успешно завершённых ликвидаций и реорганизаций</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 text-center transition hover:scale-105">
+                        <div class="text-5xl font-bold mb-2 text-blue-400">✓</div>
+                        <p class="text-lg font-semibold mb-2">Сопровождение</p>
+                        <p class="text-sm opacity-70"><!-- TODO: заменить --> Ведём процесс до полного завершения</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 text-center transition hover:scale-105">
+                        <div class="text-5xl font-bold mb-2 text-blue-400">📋</div>
+                        <p class="text-lg font-semibold mb-2">Фиксация</p>
+                        <p class="text-sm opacity-70"><!-- TODO: заменить --> Закрепляем сроки и стоимость в договоре</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="glass-effect py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Наши услуги</h2>
+                    <p class="text-lg opacity-80">Популярные услуги и их цены</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-effect rounded-3xl p-8 shadow-xl tilt-card">
+                        <div class="tilt-card-glow"></div>
+                        <div class="tilt-card-inner">
+                            <div class="flex justify-center mb-6">
+                                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center mb-4">Ликвидация фирм</h3>
+                            <p class="text-center opacity-80 mb-6">
+                                Добровольная / упрощенная ликвидация
+                            </p>
+                            <div class="text-center">
+                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                    <span>Подробнее</span>
+                                    <span>→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect rounded-3xl p-8 shadow-xl tilt-card">
+                        <div class="tilt-card-glow"></div>
+                        <div class="tilt-card-inner">
+                            <div class="flex justify-center mb-6">
+                                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center mb-4">Реорганизация фирмы</h3>
+                            <p class="text-center opacity-80 mb-6">
+                                Слияние, выделение, разделение, присоединение
+                            </p>
+                            <div class="text-center">
+                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                    <span>Подробнее</span>
+                                    <span>→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect rounded-3xl p-8 shadow-xl tilt-card">
+                        <div class="tilt-card-glow"></div>
+                        <div class="tilt-card-inner">
+                            <div class="flex justify-center mb-6">
+                                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center mb-4">Создание компании</h3>
+                            <p class="text-center opacity-80 mb-6">
+                                Регистрация юридических лиц любой формы
+                            </p>
+                            <div class="text-center">
+                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                    <span>Подробнее</span>
+                                    <span>→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Как мы работаем</h2>
+                    <p class="text-lg opacity-80">Простой и прозрачный процесс работы</p>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="process-step">
+                        <div class="glass-effect rounded-2xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/30 rounded-full flex items-center justify-center">
+                                <span class="text-3xl font-bold text-blue-300">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Консультация</h3>
+                            <p class="text-sm opacity-80">Анализируем вашу ситуацию, консультируем по возможным вариантам</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="glass-effect rounded-2xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/30 rounded-full flex items-center justify-center">
+                                <span class="text-3xl font-bold text-blue-300">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Анализ</h3>
+                            <p class="text-sm opacity-80">Проверяем документы, выявляем возможные риски и пути их решения</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="glass-effect rounded-2xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/30 rounded-full flex items-center justify-center">
+                                <span class="text-3xl font-bold text-blue-300">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Документы</h3>
+                            <p class="text-sm opacity-80">Готовим и подаём пакет документов в регистрирующие органы</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="glass-effect rounded-2xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/30 rounded-full flex items-center justify-center">
+                                <span class="text-3xl font-bold text-blue-300">4</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Результат</h3>
+                            <p class="text-sm opacity-80">Контролируем процесс и получаем нужный результат</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prices" class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Стоимость услуг</h2>
+                    <p class="text-lg opacity-80">Популярные сервисы для обслуживания</p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="glass-effect rounded-3xl p-8 space-y-6">
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-blue-500/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-lg font-semibold">Ликвидация фирмы</span>
+                                </div>
+                                <span class="text-xl font-bold whitespace-nowrap">от 5 000 ₽</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-blue-500/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-lg font-semibold">Регистрация ООО</span>
+                                </div>
+                                <span class="text-xl font-bold whitespace-nowrap">от 7 000 ₽</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-blue-500/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-lg font-semibold">Изменения в ЕГРЮЛ</span>
+                                </div>
+                                <span class="text-xl font-bold whitespace-nowrap">от 3 000 ₽</span>
+                            </div>
+
+                            <div class="pt-4">
+                                <button class="w-full btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg">
+                                    <span>Смотреть все цены</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="hidden md:block">
+                            <div class="map-container" style="height: 450px;">
+                                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8e3c3f5e4f4a5c5e5e5e5e5e5e5e5e5e&amp;source=constructor" width="100%" height="450" loading="lazy" title="Карта офиса в Омске"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Частые вопросы</h2>
+                    <p class="text-lg opacity-80">Ответы на популярные вопросы о наших услугах</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-effect rounded-3xl p-8">
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-question">
+                                <h3 class="text-lg font-semibold pr-4">Сколько времени занимает ликвидация компании?</h3>
+                                <div class="faq-icon"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p class="opacity-80">Сроки зависят от выбранного способа ликвидации. Упрощённая процедура обычно занимает от 3 до 6 месяцев, стандартная — от 4 до 8 месяцев. Точные сроки определяются после анализа вашей ситуации.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-question">
+                                <h3 class="text-lg font-semibold pr-4">Можно ли провести ликвидацию удалённо?</h3>
+                                <div class="faq-icon"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p class="opacity-80">Да, большую часть процедур можно провести дистанционно. Вам потребуется предоставить скан-копии документов и оформить доверенность. Личное присутствие может понадобиться только на этапе подписания некоторых документов.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-question">
+                                <h3 class="text-lg font-semibold pr-4">Какие документы нужны для начала работы?</h3>
+                                <div class="faq-icon"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p class="opacity-80">Базовый пакет включает: устав компании, свидетельство о регистрации, ИНН, выписку из ЕГРЮЛ, документы учредителей и директора. Полный список зависит от специфики вашей компании и будет уточнён на консультации.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-question">
+                                <h3 class="text-lg font-semibold pr-4">Что будет с долгами и обязательствами компании?</h3>
+                                <div class="faq-icon"></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p class="opacity-80">При ликвидации все долги должны быть погашены до завершения процедуры. Мы помогаем провести анализ задолженностей, взаимодействуем с кредиторами и разрабатываем план погашения. В случае банкротства процедура регулируется отдельно.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contacts" class="glass-effect py-12 mt-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 border-2 border-white rounded flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">Профессионалы</div>
+                            <div class="text-sm opacity-75">КОНСАЛТИНГОВАЯ КОМПАНИЯ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center justify-start md:justify-end gap-4">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="tel:+79653986777" class="font-semibold hover:text-blue-200 transition">+7 (965) 398-67-77</a>
+                        </div>
+                        <span class="text-sm opacity-75"><!-- TODO: удалить или заменить -->ИНН/ОГРН</span>
+                        <button onclick="openModal()" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition">
+                            Контакты
+                        </button>
+                        <div class="flex space-x-2">
+                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="VK">
+                                <span class="text-xs">VK</span>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="Email">
+                                <span class="text-xs">📧</span>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="OK">
+                                <span class="text-xs">OK</span>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="Telegram">
+                                <span class="text-xs">TG</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap justify-between items-center gap-4 pt-8 border-t border-white/10">
+                    <div class="flex flex-wrap gap-6 text-sm">
+                        <a href="#" class="hover:text-blue-200 transition">Главная</a>
+                        <a href="#services" class="hover:text-blue-200 transition">Услуги</a>
+                        <a href="#prices" class="hover:text-blue-200 transition">Цены</a>
+                        <a href="#contacts" class="hover:text-blue-200 transition">Контакты</a>
+                        <a href="#" class="policy-link" onclick="openPolicyModal(); return false;">Политика конфиденциальности</a>
+                    </div>
+                    <div class="text-sm opacity-75">
+                        Работаем по всей России
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="sticky-mobile-btn md:hidden">
+        <button onclick="openModal()" class="w-full py-3 text-white font-semibold rounded-full flex items-center justify-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Получить консультацию</span>
+        </button>
+    </div>
+
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="text-3xl font-bold mb-6 text-center">Заказать консультацию</h2>
+            
+            <div id="formMessage" style="display: none;"></div>
+            
+            <form id="consultationForm" action="https://formspree.io/f/XXXXYYYY" method="POST" onsubmit="handleSubmit(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-semibold">Ваше имя</label>
+                        <input type="text" name="name" class="form-input" placeholder="Иван Иванов" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-semibold">Телефон</label>
+                        <input type="tel" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-semibold">Email</label>
+                        <input type="email" name="email" class="form-input" placeholder="example@mail.ru">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-semibold">Комментарий</label>
+                        <textarea name="comment" class="form-input" rows="3" placeholder="Опишите вашу ситуацию..."></textarea>
+                    </div>
+                    
+                    <!-- Honeypot -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <!-- UTM fields -->
+                    <input type="hidden" name="utm_source" id="utm_source">
+                    <input type="hidden" name="utm_medium" id="utm_medium">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+                    <input type="hidden" name="utm_content" id="utm_content">
+                    <input type="hidden" name="utm_term" id="utm_term">
+                    
+                    <button type="submit" id="submitBtn" class="w-full btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg mt-4">
+                        <span id="submitBtnText">Отправить заявку</span>
+                    </button>
+                </div>
+            </form>
+            <p class="text-center text-sm mt-4 opacity-75">
+                Нажимая кнопку, вы соглашаетесь с <a href="#" class="policy-link" onclick="openPolicyModal(); return false;">политикой конфиденциальности</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePolicyModal()">&times;</span>
+            <h2 class="text-3xl font-bold mb-6 text-center">Политика конфиденциальности</h2>
+            
+            <div class="space-y-4 text-sm opacity-90 leading-relaxed">
+                <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта.</p>
+                
+                <p><strong>Сбор информации:</strong> Мы собираем только ту информацию, которую вы предоставляете добровольно при заполнении форм обратной связи: имя, телефон, email и текст сообщения.</p>
+                
+                <p><strong>Использование данных:</strong> Предоставленная информация используется исключительно для связи с вами и консультирования по интересующим вопросам.</p>
+                
+                <p><strong>Защита данных:</strong> Мы применяем технические и организационные меры для защиты ваших персональных данных от несанкционированного доступа, изменения или уничтожения.</p>
+                
+                <p><strong>Передача третьим лицам:</strong> Ваши данные не передаются третьим лицам без вашего явного согласия, за исключением случаев, предусмотренных законодательством РФ.</p>
+                
+                <p><strong>Cookies:</strong> Сайт может использовать cookie-файлы для улучшения работы и анализа посещаемости.</p>
+                
+                <p><strong>Ваши права:</strong> Вы имеете право на доступ к своим данным, их исправление или удаление. Для этого свяжитесь с нами по телефону или email.</p>
+                
+                <p><strong>Изменения:</strong> Мы оставляем за собой право вносить изменения в настоящую Политику. Актуальная версия всегда доступна на сайте.</p>
+                
+                <p><strong>Контакты:</strong> По вопросам обработки персональных данных обращайтесь по телефону +7 (965) 398-67-77.</p>
+                
+                <p class="mt-6 text-xs opacity-70">Используя данный сайт, вы соглашаетесь с условиями настоящей Политики конфиденциальности.</p>
+            </div>
+            
+            <button onclick="closePolicyModal()" class="w-full mt-6 btn-primary text-white font-semibold py-3 px-6 rounded-full">
+                <span>Понятно</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const isMobile = window.innerWidth <= 768;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // UTM Parameters Capture
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+            
+            utmParams.forEach(param => {
+                const value = urlParams.get(param);
+                const input = document.getElementById(param);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        })();
+
+        // Scroll Progress
+        window.addEventListener('scroll', function() {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.pageYOffset / windowHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Cursor Spotlight
+        if (!isMobile && !prefersReducedMotion) {
+            const cursorSpotlight = document.getElementById('cursor-spotlight');
+            const cursorSpotlightSecondary = document.getElementById('cursor-spotlight-secondary');
+            let mouseX = 0, mouseY = 0, spotlightX = 0, spotlightY = 0;
+            let spotlightSecondaryX = 0, spotlightSecondaryY = 0;
+
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateSpotlight() {
+                const lerp = 0.1;
+                spotlightX += (mouseX - spotlightX) * lerp;
+                spotlightY += (mouseY - spotlightY) * lerp;
+                cursorSpotlight.style.left = spotlightX + 'px';
+                cursorSpotlight.style.top = spotlightY + 'px';
+                requestAnimationFrame(animateSpotlight);
+            }
+
+            function animateSpotlightSecondary() {
+                const lerp = 0.05;
+                spotlightSecondaryX += (mouseX - spotlightSecondaryX) * lerp;
+                spotlightSecondaryY += (mouseY - spotlightSecondaryY) * lerp;
+                cursorSpotlightSecondary.style.left = spotlightSecondaryX + 'px';
+                cursorSpotlightSecondary.style.top = spotlightSecondaryY + 'px';
+                requestAnimationFrame(animateSpotlightSecondary);
+            }
+
+            animateSpotlight();
+            animateSpotlightSecondary();
+
+            document.addEventListener('mouseleave', () => {
+                cursorSpotlight.style.opacity = '0';
+                cursorSpotlightSecondary.style.opacity = '0';
+            });
+
+            document.addEventListener('mouseenter', () => {
+                cursorSpotlight.style.opacity = '0.8';
+                cursorSpotlightSecondary.style.opacity = '0.7';
+            });
+
+            // Blob Parallax
+            const blobs = [
+                document.getElementById('blob1'),
+                document.getElementById('blob2'),
+                document.getElementById('blob3'),
+                document.getElementById('blob4')
+            ];
+            
+            let blobMouseX = 0, blobMouseY = 0, currentBlobX = 0, currentBlobY = 0;
+            
+            document.addEventListener('mousemove', function(e) {
+                blobMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                blobMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+            
+            function animateBlobParallax() {
+                const lerp = 0.08;
+                currentBlobX += (blobMouseX - currentBlobX) * lerp;
+                currentBlobY += (blobMouseY - currentBlobY) * lerp;
+                
+                const offsets = [50, 70, 60, 80];
+                blobs.forEach((blob, i) => {
+                    if (blob) {
+                        blob.style.transform = `translate3d(${-currentBlobX * offsets[i]}px, ${-currentBlobY * offsets[i]}px, 0)`;
+                    }
+                });
+                
+                requestAnimationFrame(animateBlobParallax);
+            }
+            
+            animateBlobParallax();
+
+            // Hero Parallax
+            const heroParallaxContainer = document.getElementById('hero-parallax-container');
+            let heroMouseX = 0, heroMouseY = 0, currentHeroX = 0, currentHeroY = 0;
+            
+            if (heroParallaxContainer) {
+                document.addEventListener('mousemove', function(e) {
+                    heroMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                    heroMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+                });
+                
+                function animateHeroParallax() {
+                    const lerp = 0.1;
+                    currentHeroX += (heroMouseX - currentHeroX) * lerp;
+                    currentHeroY += (heroMouseY - currentHeroY) * lerp;
+                    heroParallaxContainer.style.transform = `translate3d(${-currentHeroX * 40}px, ${-currentHeroY * 40}px, 0)`;
+                    requestAnimationFrame(animateHeroParallax);
+                }
+                
+                animateHeroParallax();
+            }
+        }
+
+        // Scroll Parallax
+        if (!prefersReducedMotion) {
+            const parallaxContent = document.querySelector('.parallax-content');
+            const heroImage = document.querySelector('.hero-image-placeholder');
+            const heroSection = document.getElementById('hero-section');
+            const animatedBg = document.querySelector('.animated-bg');
+            let ticking = false;
+
+            function updateParallax() {
+                if (!heroSection) return;
+                const scrolled = window.pageYOffset;
+                const heroRect = heroSection.getBoundingClientRect();
+                
+                if (heroRect.bottom > 0 && heroRect.top < window.innerHeight) {
+                    if (animatedBg) animatedBg.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0)`;
+                    if (parallaxContent) parallaxContent.style.transform = `translate3d(0, ${scrolled * 0.08}px, 0)`;
+                    if (heroImage) heroImage.style.transform = `translate3d(0, ${scrolled * 0.15}px, 0)`;
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+        }
+
+        // 3D Tilt Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        if (!isMobile && !prefersReducedMotion) {
+            tiltCards.forEach(card => {
+                const cardInner = card.querySelector('.tilt-card-inner');
+                
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const mouseX = e.clientX - centerX;
+                    const mouseY = e.clientY - centerY;
+                    const rotateX = (mouseY / rect.height) * -20;
+                    const rotateY = (mouseX / rect.width) * 20;
+                    
+                    if (cardInner) {
+                        cardInner.style.transform = `
+                            perspective(1000px)
+                            rotateX(${rotateX}deg)
+                            rotateY(${rotateY}deg)
+                            scale3d(1.05, 1.05, 1.05)
+                        `;
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (cardInner) {
+                        cardInner.style.transform = `
+                            perspective(1000px)
+                            rotateX(0deg)
+                            rotateY(0deg)
+                            scale3d(1, 1, 1)
+                        `;
+                    }
+                });
+            });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const wasActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+            if (!wasActive) element.classList.add('active');
+        }
+
+        // Modals
+        function openModal() {
+            document.getElementById('consultationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('consultationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openPolicyModal() {
+            document.getElementById('policyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePolicyModal() {
+            document.getElementById('policyModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const consultModal = document.getElementById('consultationModal');
+            const policyModal = document.getElementById('policyModal');
+            if (event.target === consultModal) closeModal();
+            if (event.target === policyModal) closePolicyModal();
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closePolicyModal();
+            }
+        });
+
+        // Form Submission with Formspree
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            const messageDiv = document.getElementById('formMessage');
+            const formAction = form.action;
+            
+            // Check if endpoint is configured
+            if (formAction.includes('XXXXYYYY')) {
+                showMessage('Необходимо настроить Formspree endpoint. Замените XXXXYYYY на ваш код формы.', 'info');
+                return;
+            }
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtnText.innerHTML = '<span class="spinner"></span> Отправляем...';
+            hideMessage();
+            
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showMessage('Заявка отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        closeModal();
+                        hideMessage();
+                    }, 1500);
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                showMessage('Не удалось отправить заявку. Попробуйте позже или позвоните нам.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtnText.textContent = 'Отправить заявку';
+            }
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = text;
+            messageDiv.className = `form-message ${type}`;
+            messageDiv.style.display = 'block';
+        }
+
+        function hideMessage() {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.style.display = 'none';
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Phone Formatting
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value[0] === '7' || value[0] === '8') value = value.substring(1);
+                    e.target.value = '+7 ' + 
+                        (value.substring(0, 3) ? '(' + value.substring(0, 3) : '') +
+                        (value.substring(3, 6) ? ') ' + value.substring(3, 6) : '') +
+                        (value.substring(6, 8) ? '-' + value.substring(6, 8) : '') +
+                        (value.substring(8, 10) ? '-' + value.substring(8, 10) : '');
+                }
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Reveal on Scroll
+        function revealOnScroll() {
+            document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 150) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
