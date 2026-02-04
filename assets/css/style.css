@@ -666,6 +666,59 @@ html {
     color: #60a5fa;
 }
 
+/* === Button Press + Ripple Effects === */
+
+/* Press effect for primary buttons */
+.btn-primary:active:not(:disabled) {
+    transform: translateY(1px) scale(0.99) !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+    transition: transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Focus-visible glow for keyboard navigation */
+.btn-primary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.45), 0 15px 35px rgba(59, 130, 246, 0.4);
+}
+
+/* Press effect for secondary / glass buttons (Подробнее, footer, social, nav) */
+.interactive-btn {
+    position: relative;
+    overflow: hidden;
+    transition: filter 200ms cubic-bezier(.2,.8,.2,1), transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms cubic-bezier(.2,.8,.2,1), background 200ms cubic-bezier(.2,.8,.2,1);
+}
+
+.interactive-btn:hover {
+    filter: brightness(1.12);
+}
+
+.interactive-btn:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+.interactive-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.4);
+}
+
+/* Ripple span */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(0);
+    animation: ripple-expand 500ms cubic-bezier(.2,.8,.2,1) forwards;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes ripple-expand {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
