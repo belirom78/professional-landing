@@ -7,10 +7,10 @@
 
 ## Стек технологий
 
-- **HTML** — единый `index.html` (вся разметка, стили и скрипты в одном файле)
+- **HTML** — `index.html` (разметка)
 - **Tailwind CSS** — подключён через CDN
-- **Кастомный CSS** — встроенный `<style>`, ~1500 строк (градиенты, glass morphism, 3D-эффекты, анимации blob, параллакс)
-- **Vanilla JavaScript** — встроенный `<script>`, ~1350 строк (без фреймворков)
+- **Кастомный CSS** — `assets/css/style.css` (градиенты, glass morphism, 3D-эффекты, анимации blob, параллакс)
+- **Vanilla JavaScript** — `assets/js/main.js` (без фреймворков)
 - **Google Fonts** — Montserrat (400, 500, 600, 700, 800)
 - **Formspree** — обработка форм
 - **Яндекс.Карты** — iframe карта офиса
@@ -19,11 +19,16 @@
 
 ```
 professional-landing/
-├── index.html          # Основной и единственный файл лендинга
-├── img/
-│   └── hero-side.png   # Изображение hero-секции
+├── index.html              # HTML-разметка лендинга
+├── assets/
+│   ├── css/
+│   │   └── style.css       # Кастомные стили
+│   ├── js/
+│   │   └── main.js         # Скрипты (ванильный JS)
+│   └── img/
+│       └── hero-side.png   # Изображение hero-секции
 ├── README.md
-└── CLAUDE.md           # Этот файл
+└── CLAUDE.md               # Этот файл
 ```
 
 ## Секции лендинга (порядок в index.html)
