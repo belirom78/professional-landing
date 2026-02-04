@@ -195,22 +195,22 @@ function toggleFaq(element) {
 
 // Modals
 function openModal() {
-    document.getElementById('consultationModal').classList.add('active');
+    document.getElementById('consultationModal').classList.add('is-open');
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-    document.getElementById('consultationModal').classList.remove('active');
+    document.getElementById('consultationModal').classList.remove('is-open');
     document.body.style.overflow = 'auto';
 }
 
 function openPolicyModal() {
-    document.getElementById('policyModal').classList.add('active');
+    document.getElementById('policyModal').classList.add('is-open');
     document.body.style.overflow = 'hidden';
 }
 
 function closePolicyModal() {
-    document.getElementById('policyModal').classList.remove('active');
+    document.getElementById('policyModal').classList.remove('is-open');
     document.body.style.overflow = 'auto';
 }
 
@@ -235,12 +235,12 @@ function openServiceModal(key) {
     if (!data) return;
     document.getElementById('serviceModalTitle').textContent = data.title;
     document.getElementById('serviceModalBody').innerHTML = data.body;
-    document.getElementById('serviceModal').classList.add('active');
+    document.getElementById('serviceModal').classList.add('is-open');
     document.body.style.overflow = 'hidden';
 }
 
 function closeServiceModal() {
-    document.getElementById('serviceModal').classList.remove('active');
+    document.getElementById('serviceModal').classList.remove('is-open');
     document.body.style.overflow = 'auto';
 }
 
