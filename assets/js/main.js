@@ -384,28 +384,63 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 // Global Page Click Ripple (always enabled — premium animation)
-function ensureRippleLayer() {
-    var layer = document.getElementById('click-ripple-layer');
-    if (!layer) {
-        layer = document.createElement('div');
-        layer.id = 'click-ripple-layer';
-        layer.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(layer);
+(function() {
+    function ensureRippleLayer() {
+        var layer = document.getElementById('click-ripple-layer');
+        if (!layer) {
+            layer = document.createElement('div');
+            layer.id = 'click-ripple-layer';
+            layer.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(layer);
+        }
+        return layer;
     }
-    return layer;
-}
 
-document.addEventListener('pointerdown', function(e) {
-    if (e.button === 2) return;
-    var layer = ensureRippleLayer();
-    var r = document.createElement('span');
-    r.className = 'page-ripple';
-    r.style.left = e.clientX + 'px';
-    r.style.top = e.clientY + 'px';
-    layer.appendChild(r);
-    r.addEventListener('animationend', function() { r.remove(); });
-    setTimeout(function() { if (r.parentNode) r.remove(); }, 1200);
-}, { capture: true, passive: true });
+    function spawnRipple(x, y) {
+        var layer = ensureRippleLayer();
+        var r = document.createElement('span');
+        r.className = 'page-ripple';
+        r.style.left = x + 'px';
+        r.style.top = y + 'px';
+        layer.appendChild(r);
+        r.addEventListener('animationend', function() { r.remove(); });
+        setTimeout(function() { if (r.parentNode) r.remove(); }, 1200);
+    }
+
+    function shouldIgnore(e) {
+        if (e.button === 2) return true;
+        if (e.target && e.target.closest && e.target.closest('.modal-content')) return true;
+        return false;
+    }
+
+    var pointerSupported = typeof PointerEvent !== 'undefined';
+
+    if (pointerSupported) {
+        document.addEventListener('pointerdown', function(e) {
+            if (shouldIgnore(e)) return;
+            spawnRipple(e.clientX, e.clientY);
+        }, { capture: true, passive: true });
+    } else {
+        document.addEventListener('mousedown', function(e) {
+            if (shouldIgnore(e)) return;
+            spawnRipple(e.clientX, e.clientY);
+        }, { capture: true, passive: true });
+
+        document.addEventListener('touchstart', function(e) {
+            if (e.target && e.target.closest && e.target.closest('.modal-content')) return;
+            var touch = e.touches[0];
+            if (touch) spawnRipple(touch.clientX, touch.clientY);
+        }, { capture: true, passive: true });
+    }
+
+    // Fallback click handler (ensures ripple on devices that miss pointerdown)
+    document.addEventListener('click', function(e) {
+        if (shouldIgnore(e)) return;
+        // Skip if pointerdown already fired (avoid double ripple on desktop)
+        if (pointerSupported) return;
+        spawnRipple(e.clientX, e.clientY);
+    }, { capture: true, passive: true });
+})();
 
 // Ripple Effect
 (function() {
