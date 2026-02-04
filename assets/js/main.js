@@ -379,3 +379,45 @@ document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
 
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
+
+// Ripple Effect
+(function() {
+    // Selectors for all interactive buttons/links
+    var rippleSelector = [
+        '.btn-primary',
+        'nav a',
+        'footer a',
+        '.mobile-menu a',
+        'button:not(.close-modal):not(.hamburger):not(.faq-question)'
+    ].join(',');
+
+    // Mark non-btn-primary elements with interactive-btn class for press/hover CSS
+    document.querySelectorAll(rippleSelector).forEach(function(el) {
+        if (!el.classList.contains('btn-primary')) {
+            el.classList.add('interactive-btn');
+        }
+    });
+
+    // Add ripple on click via event delegation
+    document.addEventListener('click', function(e) {
+        var target = e.target.closest(rippleSelector);
+        if (!target || prefersReducedMotion) return;
+
+        var rect = target.getBoundingClientRect();
+        var size = Math.max(rect.width, rect.height);
+        var x = e.clientX - rect.left - size / 2;
+        var y = e.clientY - rect.top - size / 2;
+
+        var ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+
+        target.appendChild(ripple);
+
+        ripple.addEventListener('animationend', function() {
+            ripple.remove();
+        });
+    });
+})();
