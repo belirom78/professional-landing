@@ -349,8 +349,11 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' || href.length < 2 || !href.startsWith('#')) return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        let target = null;
+        try { target = document.querySelector(href); } catch (_) { return; }
         if (target) {
             target.scrollIntoView({
                 behavior: prefersReducedMotion ? 'auto' : 'smooth',
