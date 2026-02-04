@@ -214,17 +214,50 @@ function closePolicyModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Service Detail Modal
+var serviceModalData = {
+    liquidation: {
+        title: 'Ликвидация фирмы под ключ',
+        body: '<p>Закроем компанию официально и безопасно: анализ ситуации, подготовка документов, сопровождение этапов до результата.</p><p>Сроки обычно 2\u20134 месяца (зависит от ситуации).</p>'
+    },
+    reorganization: {
+        title: 'Реорганизация фирмы',
+        body: '<p>Подберём схему (слияние/присоединение/разделение/выделение), подготовим пакет документов и сопроводим регистрацию.</p><p>Сроки обычно 1\u20133 месяца.</p>'
+    },
+    registration: {
+        title: 'Регистрация компании',
+        body: '<p>Поможем открыть ООО/ИП: ОКВЭД, система налогообложения, документы, подача и получение регистрации.</p><p>Сроки обычно 3\u20137 рабочих дней.</p>'
+    }
+};
+
+function openServiceModal(key) {
+    var data = serviceModalData[key];
+    if (!data) return;
+    document.getElementById('serviceModalTitle').textContent = data.title;
+    document.getElementById('serviceModalBody').innerHTML = data.body;
+    document.getElementById('serviceModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal() {
+    document.getElementById('serviceModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
 window.onclick = function(event) {
-    const consultModal = document.getElementById('consultationModal');
-    const policyModal = document.getElementById('policyModal');
+    var consultModal = document.getElementById('consultationModal');
+    var policyModal = document.getElementById('policyModal');
+    var serviceModal = document.getElementById('serviceModal');
     if (event.target === consultModal) closeModal();
     if (event.target === policyModal) closePolicyModal();
+    if (event.target === serviceModal) closeServiceModal();
 }
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeModal();
         closePolicyModal();
+        closeServiceModal();
     }
 });
 

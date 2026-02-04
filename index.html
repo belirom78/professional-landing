@@ -200,7 +200,7 @@
                                 Добровольная / упрощенная ликвидация
                             </p>
                             <div class="text-center">
-                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                <button onclick="openServiceModal('liquidation')" class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
                                     <span>Подробнее</span>
                                     <span>→</span>
                                 </button>
@@ -223,7 +223,7 @@
                                 Слияние, выделение, разделение, присоединение
                             </p>
                             <div class="text-center">
-                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                <button onclick="openServiceModal('reorganization')" class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
                                     <span>Подробнее</span>
                                     <span>→</span>
                                 </button>
@@ -246,7 +246,7 @@
                                 Регистрация юридических лиц любой формы
                             </p>
                             <div class="text-center">
-                                <button class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
+                                <button onclick="openServiceModal('registration')" class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-full transition inline-flex items-center space-x-2">
                                     <span>Подробнее</span>
                                     <span>→</span>
                                 </button>
@@ -446,21 +446,24 @@
                             </svg>
                             <a href="tel:+79653986777" class="font-semibold hover:text-blue-200 transition">+7 (965) 398-67-77</a>
                         </div>
-                        <span class="text-sm opacity-75"><!-- TODO: удалить или заменить -->ИНН/ОГРН</span>
+                        <span class="text-sm opacity-75"><!-- TODO: вставить реальные ИНН и ОГРН -->ИНН: ____ / ОГРН: ____</span>
                         <button onclick="openModal()" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition">
                             Контакты
                         </button>
                         <div class="flex space-x-2">
-                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="VK">
+                            <!-- TODO: вставить реальный URL VK -->
+                            <a href="#" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="VK">
                                 <span class="text-xs">VK</span>
                             </a>
                             <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="Email">
                                 <span class="text-xs">📧</span>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="OK">
+                            <!-- TODO: вставить реальный URL OK -->
+                            <a href="#" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="OK">
                                 <span class="text-xs">OK</span>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="Telegram">
+                            <!-- TODO: вставить реальный URL Telegram -->
+                            <a href="#" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition" aria-label="Telegram">
                                 <span class="text-xs">TG</span>
                             </a>
                         </div>
@@ -570,6 +573,18 @@
             
             <button onclick="closePolicyModal()" class="w-full mt-6 btn-primary text-white font-semibold py-3 px-6 rounded-full">
                 <span>Понятно</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeServiceModal()">&times;</span>
+            <h2 id="serviceModalTitle" class="text-3xl font-bold mb-6 text-center"></h2>
+            <div id="serviceModalBody" class="text-base opacity-90 leading-relaxed space-y-4"></div>
+            <button onclick="closeServiceModal(); openModal();" class="w-full mt-6 btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg">
+                <span>Заказать консультацию</span>
             </button>
         </div>
     </div>
