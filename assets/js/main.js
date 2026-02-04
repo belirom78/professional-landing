@@ -384,19 +384,28 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 // Global Page Click Ripple (always enabled — premium animation)
-var rippleLayer = document.getElementById('click-ripple-layer');
-if (rippleLayer) {
-    document.addEventListener('pointerdown', function(e) {
-        if (e.button === 2) return;
-        if (e.target.closest('.modal')) return;
-        var r = document.createElement('span');
-        r.className = 'page-ripple';
-        r.style.left = e.clientX + 'px';
-        r.style.top = e.clientY + 'px';
-        rippleLayer.appendChild(r);
-        r.addEventListener('animationend', function() { r.remove(); });
-    });
+function ensureRippleLayer() {
+    var layer = document.getElementById('click-ripple-layer');
+    if (!layer) {
+        layer = document.createElement('div');
+        layer.id = 'click-ripple-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(layer);
+    }
+    return layer;
 }
+
+document.addEventListener('pointerdown', function(e) {
+    if (e.button === 2) return;
+    var layer = ensureRippleLayer();
+    var r = document.createElement('span');
+    r.className = 'page-ripple';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    layer.appendChild(r);
+    r.addEventListener('animationend', function() { r.remove(); });
+    setTimeout(function() { if (r.parentNode) r.remove(); }, 1200);
+}, { capture: true, passive: true });
 
 // Ripple Effect
 (function() {

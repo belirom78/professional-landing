@@ -724,7 +724,7 @@ html {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 900;
+    z-index: 9998;
 }
 
 .page-ripple {
@@ -754,11 +754,11 @@ html {
         scroll-behavior: auto !important;
     }
 
-    #click-ripple-layer .page-ripple {
+    .page-ripple {
         animation-duration: 800ms !important;
     }
 
-    .interactive-btn .ripple {
+    .ripple {
         animation-duration: 500ms !important;
     }
 
