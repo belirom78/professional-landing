@@ -383,21 +383,19 @@ document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Global Page Click Ripple
-if (!prefersReducedMotion) {
-    var rippleLayer = document.getElementById('click-ripple-layer');
-    if (rippleLayer) {
-        document.addEventListener('pointerdown', function(e) {
-            if (e.button === 2) return;
-            if (e.target.closest('.modal')) return;
-            var r = document.createElement('span');
-            r.className = 'page-ripple';
-            r.style.left = e.clientX + 'px';
-            r.style.top = e.clientY + 'px';
-            rippleLayer.appendChild(r);
-            r.addEventListener('animationend', function() { r.remove(); });
-        });
-    }
+// Global Page Click Ripple (always enabled — premium animation)
+var rippleLayer = document.getElementById('click-ripple-layer');
+if (rippleLayer) {
+    document.addEventListener('pointerdown', function(e) {
+        if (e.button === 2) return;
+        if (e.target.closest('.modal')) return;
+        var r = document.createElement('span');
+        r.className = 'page-ripple';
+        r.style.left = e.clientX + 'px';
+        r.style.top = e.clientY + 'px';
+        rippleLayer.appendChild(r);
+        r.addEventListener('animationend', function() { r.remove(); });
+    });
 }
 
 // Ripple Effect
