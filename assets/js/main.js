@@ -439,84 +439,88 @@ window.addEventListener('load', revealOnScroll);
 })();
 
 // ============================================================
-// SITE HEADER — Sticky behavior, burger, active nav, mobile menu
+// SITE HEADER — Sticky, burger, active nav, mobile menu
 // ============================================================
 (function headerInit() {
-    var header  = document.getElementById('site-header');
-    var burger  = document.getElementById('headerBurger');
-    var mobileNav = document.getElementById('mobileNav');
-    var backdrop  = document.getElementById('mobileNavBackdrop');
+    var header     = document.getElementById('site-header');
+    var burger     = document.getElementById('headerBurger');
+    var mobileMenu = document.getElementById('mobileMenu');
 
-    if (!header || !burger || !mobileNav) return;
+    if (!header || !burger || !mobileMenu) return;
 
-    // 1. Scroll: добавляем .is-scrolled при прокрутке > 10px
+    // 1. Sticky scroll state
     function onHeaderScroll() {
-        if (window.pageYOffset > 10) {
-            header.classList.add('is-scrolled');
-        } else {
-            header.classList.remove('is-scrolled');
-        }
+        header.classList.toggle('is-scrolled', window.pageYOffset > 10);
     }
     window.addEventListener('scroll', onHeaderScroll, { passive: true });
     onHeaderScroll();
 
-    // 2. Открытие / закрытие мобильного меню
-    function openMobileNav() {
-        mobileNav.classList.add('is-open');
+    // 2. Open mobile menu
+    function openMenu() {
+        mobileMenu.removeAttribute('hidden');
+        // Одна кадр до добавления .is-open, чтобы запустились CSS-переходы
+        requestAnimationFrame(function() {
+            mobileMenu.classList.add('is-open');
+        });
         burger.classList.add('is-open');
         burger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     }
 
-    function closeMobileNav() {
-        mobileNav.classList.remove('is-open');
+    // 3. Close mobile menu
+    function closeMenu() {
+        mobileMenu.classList.remove('is-open');
         burger.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        // Скрываем после завершения анимации (0.38s + запас)
+        setTimeout(function() {
+            if (!mobileMenu.classList.contains('is-open')) {
+                mobileMenu.setAttribute('hidden', '');
+            }
+        }, 420);
     }
 
-    burger.addEventListener('click', function () {
-        mobileNav.classList.contains('is-open') ? closeMobileNav() : openMobileNav();
+    // 4. Burger toggle
+    burger.addEventListener('click', function() {
+        mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
-    // 3. Закрытие по клику на затемнение
-    if (backdrop) backdrop.addEventListener('click', closeMobileNav);
-
-    // 4. Закрытие по клику на ссылку мобильного меню
-    document.querySelectorAll('.mobile-nav__link').forEach(function (link) {
-        link.addEventListener('click', closeMobileNav);
+    // 5. Закрытие по [data-close] (backdrop, кнопка ×, ссылки меню)
+    mobileMenu.addEventListener('click', function(e) {
+        if (e.target.closest('[data-close]')) closeMenu();
     });
 
-    // 5. Закрытие по Esc (остальные модалки закрываются существующим хендлером)
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
-            closeMobileNav();
+    // 6. Закрытие по Esc
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+            closeMenu();
             burger.focus();
         }
     });
 
-    // 6. Подсветка активной секции через IntersectionObserver
-    var allNavLinks = document.querySelectorAll('.site-header__nav-link, .mobile-nav__link');
+    // 7. Подсветка активной секции через IntersectionObserver
+    var desktopLinks = document.querySelectorAll('.site-nav a[data-nav-section]');
+    var mobileLinks  = document.querySelectorAll('.mobile-panel nav a[data-nav-section]');
+    var allNavLinks  = Array.prototype.slice.call(desktopLinks).concat(
+                       Array.prototype.slice.call(mobileLinks));
 
     function setActive(sectionId) {
-        allNavLinks.forEach(function (link) {
-            var sec = link.dataset.navSection;
-            link.classList.toggle('is-active', sec === sectionId);
+        allNavLinks.forEach(function(link) {
+            link.classList.toggle('is-active', link.dataset.navSection === sectionId);
         });
     }
 
     if ('IntersectionObserver' in window) {
         var sections = document.querySelectorAll('section[id], footer[id]');
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    // hero-section → пустой data-nav-section=""
                     setActive(entry.target.id === 'hero-section' ? '' : entry.target.id);
                 }
             });
         }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
-
-        sections.forEach(function (s) { observer.observe(s); });
+        sections.forEach(function(s) { observer.observe(s); });
     }
 })();
 

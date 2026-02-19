@@ -70,57 +70,42 @@
     <div class="min-h-screen gradient-bg text-white">
         <!-- ========== PREMIUM STICKY HEADER ========== -->
         <header class="site-header" id="site-header" role="banner">
-            <div class="site-header__inner">
-                <!-- Логотип -->
-                <a href="/" class="site-header__logo" aria-label="Профессионалы — на главную">
-                    <img
-                        src="logo/Logo.png"
-                        alt="Логотип консалтинговой компании Профессионалы"
-                        width="160"
-                        height="44"
-                        loading="eager"
-                        decoding="async"
-                    >
+            <div class="header-inner">
+                <a class="logo-link" href="./" aria-label="На главную">
+                    <span class="logo-glow" aria-hidden="true"></span>
+                    <img class="site-logo"
+                         src="logo/Logo.png"
+                         alt="Профессионалы — консалтинговая компания"
+                         width="220"
+                         height="60"
+                         loading="eager"
+                         decoding="async">
                 </a>
 
-                <!-- Десктопная навигация -->
-                <nav class="site-header__nav" aria-label="Основная навигация">
-                    <a href="#" class="site-header__nav-link" data-nav-section="">Главная</a>
-                    <a href="#services" class="site-header__nav-link" data-nav-section="services">Услуги</a>
-                    <a href="#prices" class="site-header__nav-link" data-nav-section="prices">Цены</a>
-                    <a href="#contacts" class="site-header__nav-link" data-nav-section="contacts">Контакты</a>
+                <nav class="site-nav" aria-label="Навигация">
+                    <a href="#services" data-nav-section="services">Услуги</a>
+                    <a href="#prices" data-nav-section="prices">Цены</a>
+                    <a href="#contacts" class="nav-cta" data-nav-section="contacts">Контакты</a>
                 </nav>
 
-                <!-- Телефон и бургер -->
-                <div class="site-header__actions">
-                    <a href="tel:+79653986777" class="site-header__phone" aria-label="Позвонить нам">
-                        +7 (965) 398-67-77
-                    </a>
-                    <button
-                        class="site-header__burger"
-                        id="headerBurger"
+                <button class="burger" id="headerBurger" type="button"
                         aria-label="Открыть меню"
                         aria-expanded="false"
-                        aria-controls="mobileNav"
-                        type="button"
-                    >
-                        <span class="site-header__burger-line"></span>
-                        <span class="site-header__burger-line"></span>
-                        <span class="site-header__burger-line"></span>
-                    </button>
-                </div>
+                        aria-controls="mobileMenu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </header>
 
-        <!-- ========== MOBILE NAV OVERLAY ========== -->
-        <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Мобильное меню">
-            <div class="mobile-nav__backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
-            <div class="mobile-nav__panel">
+        <!-- ========== MOBILE MENU ========== -->
+        <div class="mobile-menu" id="mobileMenu" hidden>
+            <div class="mobile-backdrop" data-close aria-hidden="true"></div>
+            <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Меню навигации">
+                <button class="mobile-close" type="button" aria-label="Закрыть меню" data-close>&#215;</button>
                 <nav aria-label="Мобильная навигация">
-                    <a href="#" class="mobile-nav__link" data-nav-section="">Главная</a>
-                    <a href="#services" class="mobile-nav__link" data-nav-section="services">Услуги</a>
-                    <a href="#prices" class="mobile-nav__link" data-nav-section="prices">Цены</a>
-                    <a href="#contacts" class="mobile-nav__link" data-nav-section="contacts">Контакты</a>
+                    <a href="#services" class="mobile-nav__link" data-nav-section="services" data-close>Услуги</a>
+                    <a href="#prices" class="mobile-nav__link" data-nav-section="prices" data-close>Цены</a>
+                    <a href="#contacts" class="mobile-nav__link nav-cta" data-nav-section="contacts" data-close>Контакты</a>
                 </nav>
                 <div class="mobile-nav__footer">
                     <a href="tel:+79653986777" class="mobile-nav__phone" aria-label="Позвонить нам">
