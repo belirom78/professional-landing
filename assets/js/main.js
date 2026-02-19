@@ -218,16 +218,16 @@ function closePolicyModal() {
 // Service Detail Modal
 var serviceModalData = {
     liquidation: {
-        title: 'Р›РёРєРІРёРґР°С†РёСЏ С„РёСЂРјС‹ РїРѕРґ РєР»СЋС‡',
-        body: '<p>Р—Р°РєСЂРѕРµРј РєРѕРјРїР°РЅРёСЋ РѕС„РёС†РёР°Р»СЊРЅРѕ Рё Р±РµР·РѕРїР°СЃРЅРѕ: Р°РЅР°Р»РёР· СЃРёС‚СѓР°С†РёРё, РїРѕРґРіРѕС‚РѕРІРєР° РґРѕРєСѓРјРµРЅС‚РѕРІ, СЃРѕРїСЂРѕРІРѕР¶РґРµРЅРёРµ СЌС‚Р°РїРѕРІ РґРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°.</p><p>РЎСЂРѕРєРё РѕР±С‹С‡РЅРѕ 2\u20134 РјРµСЃСЏС†Р° (Р·Р°РІРёСЃРёС‚ РѕС‚ СЃРёС‚СѓР°С†РёРё).</p>'
+        title: 'Ликвидация фирмы под ключ',
+        body: '<p>Закроем компанию официально и безопасно: анализ ситуации, подготовка документов, сопровождение этапов до результата.</p><p>Сроки обычно 2\u20134 месяца (зависит от ситуации).</p>'
     },
     reorganization: {
-        title: 'Р РµРѕСЂРіР°РЅРёР·Р°С†РёСЏ С„РёСЂРјС‹',
-        body: '<p>РџРѕРґР±РµСЂС‘Рј СЃС…РµРјСѓ (СЃР»РёСЏРЅРёРµ/РїСЂРёСЃРѕРµРґРёРЅРµРЅРёРµ/СЂР°Р·РґРµР»РµРЅРёРµ/РІС‹РґРµР»РµРЅРёРµ), РїРѕРґРіРѕС‚РѕРІРёРј РїР°РєРµС‚ РґРѕРєСѓРјРµРЅС‚РѕРІ Рё СЃРѕРїСЂРѕРІРѕРґРёРј СЂРµРіРёСЃС‚СЂР°С†РёСЋ.</p><p>РЎСЂРѕРєРё РѕР±С‹С‡РЅРѕ 1\u20133 РјРµСЃСЏС†Р°.</p>'
+        title: 'Реорганизация фирмы',
+        body: '<p>Подберём схему (слияние/присоединение/разделение/выделение), подготовим пакет документов и сопроводим регистрацию.</p><p>Сроки обычно 1\u20133 месяца.</p>'
     },
     registration: {
-        title: 'Р РµРіРёСЃС‚СЂР°С†РёСЏ РєРѕРјРїР°РЅРёРё',
-        body: '<p>РџРѕРјРѕР¶РµРј РѕС‚РєСЂС‹С‚СЊ РћРћРћ/РРџ: РћРљР’Р­Р”, СЃРёСЃС‚РµРјР° РЅР°Р»РѕРіРѕРѕР±Р»РѕР¶РµРЅРёСЏ, РґРѕРєСѓРјРµРЅС‚С‹, РїРѕРґР°С‡Р° Рё РїРѕР»СѓС‡РµРЅРёРµ СЂРµРіРёСЃС‚СЂР°С†РёРё.</p><p>РЎСЂРѕРєРё РѕР±С‹С‡РЅРѕ 3\u20137 СЂР°Р±РѕС‡РёС… РґРЅРµР№.</p>'
+        title: 'Регистрация компании',
+        body: '<p>Поможем открыть ООО/ИП: ОКВЭД, система налогообложения, документы, подача и получение регистрации.</p><p>Сроки обычно 3\u20137 рабочих дней.</p>'
     }
 };
 
@@ -274,13 +274,13 @@ async function handleSubmit(event) {
 
     // Check if endpoint is configured
     if (formAction.includes('XXXXYYYY')) {
-        showMessage('РќРµРѕР±С…РѕРґРёРјРѕ РЅР°СЃС‚СЂРѕРёС‚СЊ Formspree endpoint. Р—Р°РјРµРЅРёС‚Рµ XXXXYYYY РЅР° РІР°С€ РєРѕРґ С„РѕСЂРјС‹.', 'info');
+        showMessage('Необходимо настроить Formspree endpoint. Замените XXXXYYYY на ваш код формы.', 'info');
         return;
     }
 
     // Disable button
     submitBtn.disabled = true;
-    submitBtnText.innerHTML = '<span class="spinner"></span> РћС‚РїСЂР°РІР»СЏРµРј...';
+    submitBtnText.innerHTML = '<span class="spinner"></span> Отправляем...';
     hideMessage();
 
     try {
@@ -295,7 +295,7 @@ async function handleSubmit(event) {
         });
 
         if (response.ok) {
-            showMessage('Р—Р°СЏРІРєР° РѕС‚РїСЂР°РІР»РµРЅР°! РњС‹ СЃРІСЏР¶РµРјСЃСЏ СЃ РІР°РјРё РІ Р±Р»РёР¶Р°Р№С€РµРµ РІСЂРµРјСЏ.', 'success');
+            showMessage('Заявка отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
             form.reset();
 
             setTimeout(() => {
@@ -306,10 +306,10 @@ async function handleSubmit(event) {
             throw new Error('Server error');
         }
     } catch (error) {
-        showMessage('РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ РёР»Рё РїРѕР·РІРѕРЅРёС‚Рµ РЅР°Рј.', 'error');
+        showMessage('Не удалось отправить заявку. Попробуйте позже или позвоните нам.', 'error');
     } finally {
         submitBtn.disabled = false;
-        submitBtnText.textContent = 'РћС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ';
+        submitBtnText.textContent = 'Отправить заявку';
     }
 }
 
@@ -362,7 +362,7 @@ function sanitizePhone(phone) {
         const phone = form.phone ? form.phone.value : '';
         const normalizedPhone = sanitizePhone(phone);
         if (normalizedPhone.length < 10) {
-            showLeadFormMessage('Ошибка отправки. Попробуйте позже или напишите в Telegram.', 'error');
+            showLeadFormMessage('������ ��������. ���������� ����� ��� �������� � Telegram.', 'error');
             if (form.phone) form.phone.focus();
             return;
         }
@@ -377,7 +377,7 @@ function sanitizePhone(phone) {
         };
 
         submitBtn.disabled = true;
-        submitBtnText.innerHTML = '<span class="spinner"></span> Отправляем...';
+        submitBtnText.innerHTML = '<span class="spinner"></span> ����������...';
 
         try {
             const response = await fetch(WEBHOOK_URL, {
@@ -392,17 +392,38 @@ function sanitizePhone(phone) {
             if (!response.ok) throw new Error('Webhook request failed');
 
             form.reset();
-            showLeadFormMessage('Заявка отправлена, мы свяжемся с вами.', 'success');
+            showLeadFormMessage('������ ����������, �� �������� � ����.', 'success');
         } catch (error) {
-            showLeadFormMessage('Ошибка отправки. Попробуйте позже или напишите в Telegram.', 'error');
+            showLeadFormMessage('������ ��������. ���������� ����� ��� �������� � Telegram.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtnText.textContent = 'Отправить заявку';
+            submitBtnText.textContent = '��������� ������';
         }
     });
 })();
 
-// Mobile Menu (legacy stub вЂ” Р»РѕРіРёРєР° РїРµСЂРµРЅРµСЃРµРЅР° РІ headerInit)
+// Cookie Banner
+function initCookieBanner() {
+    const banner = document.getElementById("cookie-banner");
+    const button = document.getElementById("cookie-accept-btn");
+
+    if (!banner || !button) return;
+
+    if (localStorage.getItem("cookieAccepted") === "true") return;
+
+    banner.classList.add("is-visible");
+
+    button.addEventListener("click", function () {
+        banner.classList.remove("is-visible");
+        localStorage.setItem("cookieAccepted", "true");
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    initCookieBanner();
+});
+
+// Mobile Menu (legacy stub — логика перенесена в headerInit)
 function toggleMobileMenu() { /* no-op */ }
 
 // Phone Formatting
@@ -439,7 +460,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Reveal on Scroll
 function revealOnScroll() {
-    document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
+    document.querySelectorAll('.tilt-card, .glass-effect:not(#cookie-banner)').forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         if (elementTop < window.innerHeight - 150) {
             element.style.opacity = '1';
@@ -448,7 +469,7 @@ function revealOnScroll() {
     });
 }
 
-document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
+document.querySelectorAll('.tilt-card, .glass-effect:not(#cookie-banner)').forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'all 0.6s ease';
@@ -457,7 +478,7 @@ document.querySelectorAll('.tilt-card, .glass-effect').forEach(element => {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Global Page Click Ripple (always enabled вЂ” premium animation)
+// Global Page Click Ripple (always enabled — premium animation)
 (function() {
     function ensureRippleLayer() {
         var layer = document.getElementById('click-ripple-layer');
@@ -517,7 +538,7 @@ window.addEventListener('load', revealOnScroll);
 })();
 
 // ============================================================
-// SITE HEADER вЂ” Sticky, burger, active nav, mobile menu
+// SITE HEADER — Sticky, burger, active nav, mobile menu
 // ============================================================
 (function headerInit() {
     var header     = document.getElementById('site-header');
@@ -536,7 +557,7 @@ window.addEventListener('load', revealOnScroll);
     // 2. Open mobile menu
     function openMenu() {
         mobileMenu.removeAttribute('hidden');
-        // РћРґРЅР° РєР°РґСЂ РґРѕ РґРѕР±Р°РІР»РµРЅРёСЏ .is-open, С‡С‚РѕР±С‹ Р·Р°РїСѓСЃС‚РёР»РёСЃСЊ CSS-РїРµСЂРµС…РѕРґС‹
+        // Одна кадр до добавления .is-open, чтобы запустились CSS-переходы
         requestAnimationFrame(function() {
             mobileMenu.classList.add('is-open');
         });
@@ -551,7 +572,7 @@ window.addEventListener('load', revealOnScroll);
         burger.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
-        // РЎРєСЂС‹РІР°РµРј РїРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ Р°РЅРёРјР°С†РёРё (0.38s + Р·Р°РїР°СЃ)
+        // Скрываем после завершения анимации (0.38s + запас)
         setTimeout(function() {
             if (!mobileMenu.classList.contains('is-open')) {
                 mobileMenu.setAttribute('hidden', '');
@@ -564,12 +585,12 @@ window.addEventListener('load', revealOnScroll);
         mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
-    // 5. Р—Р°РєСЂС‹С‚РёРµ РїРѕ [data-close] (backdrop, РєРЅРѕРїРєР° Г—, СЃСЃС‹Р»РєРё РјРµРЅСЋ)
+    // 5. Закрытие по [data-close] (backdrop, кнопка ×, ссылки меню)
     mobileMenu.addEventListener('click', function(e) {
         if (e.target.closest('[data-close]')) closeMenu();
     });
 
-    // 6. Р—Р°РєСЂС‹С‚РёРµ РїРѕ Esc
+    // 6. Закрытие по Esc
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
             closeMenu();
@@ -577,7 +598,7 @@ window.addEventListener('load', revealOnScroll);
         }
     });
 
-    // 7. РџРѕРґСЃРІРµС‚РєР° Р°РєС‚РёРІРЅРѕР№ СЃРµРєС†РёРё С‡РµСЂРµР· IntersectionObserver
+    // 7. Подсветка активной секции через IntersectionObserver
     var desktopLinks = document.querySelectorAll('.site-nav a[data-nav-section]');
     var mobileLinks  = document.querySelectorAll('.mobile-panel nav a[data-nav-section]');
     var allNavLinks  = Array.prototype.slice.call(desktopLinks).concat(
@@ -643,4 +664,5 @@ window.addEventListener('load', revealOnScroll);
         });
     });
 })();
+
 
