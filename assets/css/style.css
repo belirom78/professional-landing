@@ -837,30 +837,26 @@ html {
 }
 
 .site-logo {
-    height: 44px;
+    height: 60px;
     width: auto;
     display: block;
     object-fit: contain;
-    /* Контраст и читаемость на тёмном фоне */
     filter:
-        brightness(1.18)
-        contrast(1.06)
-        drop-shadow(0 1px 10px rgba(0, 0, 0, 0.6))
-        drop-shadow(0 0 3px rgba(255, 255, 255, 0.10));
-    transition: filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        brightness(1.25)
+        contrast(1.15)
+        drop-shadow(0 6px 18px rgba(0, 0, 0, .35));
+    transition: all .25s ease;
 }
 
 .logo-link:hover .site-logo {
     filter:
-        brightness(1.30)
-        contrast(1.10)
-        drop-shadow(0 0 12px rgba(59, 130, 246, 0.55))
-        drop-shadow(0 0 26px rgba(96, 165, 250, 0.22))
-        drop-shadow(0 1px 10px rgba(0, 0, 0, 0.5));
+        brightness(1.35)
+        contrast(1.2)
+        drop-shadow(0 8px 22px rgba(0, 120, 255, .35));
 }
 
 .logo-link:hover {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 .logo-link:focus-visible {
@@ -1182,6 +1178,12 @@ html {
 }
 
 /* ---- Адаптивность ---- */
+@media (max-width: 1024px) {
+    .site-logo {
+        height: 52px;
+    }
+}
+
 @media (min-width: 768px) {
     .burger {
         display: none !important;
@@ -1206,7 +1208,7 @@ html {
     }
 
     .site-logo {
-        height: 34px;
+        height: 44px;
     }
 
     .site-nav {
