@@ -324,12 +324,8 @@ function hideMessage() {
     messageDiv.style.display = 'none';
 }
 
-// Mobile Menu
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('active');
-    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-}
+// Mobile Menu (legacy stub — логика перенесена в headerInit)
+function toggleMobileMenu() { /* no-op */ }
 
 // Phone Formatting
 document.querySelectorAll('input[type="tel"]').forEach(input => {
@@ -440,6 +436,88 @@ window.addEventListener('load', revealOnScroll);
         if (pointerSupported) return;
         spawnRipple(e.clientX, e.clientY);
     }, { capture: true, passive: true });
+})();
+
+// ============================================================
+// SITE HEADER — Sticky behavior, burger, active nav, mobile menu
+// ============================================================
+(function headerInit() {
+    var header  = document.getElementById('site-header');
+    var burger  = document.getElementById('headerBurger');
+    var mobileNav = document.getElementById('mobileNav');
+    var backdrop  = document.getElementById('mobileNavBackdrop');
+
+    if (!header || !burger || !mobileNav) return;
+
+    // 1. Scroll: добавляем .is-scrolled при прокрутке > 10px
+    function onHeaderScroll() {
+        if (window.pageYOffset > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+        }
+    }
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+
+    // 2. Открытие / закрытие мобильного меню
+    function openMobileNav() {
+        mobileNav.classList.add('is-open');
+        burger.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        mobileNav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', function () {
+        mobileNav.classList.contains('is-open') ? closeMobileNav() : openMobileNav();
+    });
+
+    // 3. Закрытие по клику на затемнение
+    if (backdrop) backdrop.addEventListener('click', closeMobileNav);
+
+    // 4. Закрытие по клику на ссылку мобильного меню
+    document.querySelectorAll('.mobile-nav__link').forEach(function (link) {
+        link.addEventListener('click', closeMobileNav);
+    });
+
+    // 5. Закрытие по Esc (остальные модалки закрываются существующим хендлером)
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+            closeMobileNav();
+            burger.focus();
+        }
+    });
+
+    // 6. Подсветка активной секции через IntersectionObserver
+    var allNavLinks = document.querySelectorAll('.site-header__nav-link, .mobile-nav__link');
+
+    function setActive(sectionId) {
+        allNavLinks.forEach(function (link) {
+            var sec = link.dataset.navSection;
+            link.classList.toggle('is-active', sec === sectionId);
+        });
+    }
+
+    if ('IntersectionObserver' in window) {
+        var sections = document.querySelectorAll('section[id], footer[id]');
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    // hero-section → пустой data-nav-section=""
+                    setActive(entry.target.id === 'hero-section' ? '' : entry.target.id);
+                }
+            });
+        }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
+
+        sections.forEach(function (s) { observer.observe(s); });
+    }
 })();
 
 // Ripple Effect
