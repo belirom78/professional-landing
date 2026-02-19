@@ -545,6 +545,23 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
+.lead-form-card {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 16px 48px rgba(8, 24, 64, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.lead-form-input {
+    min-height: 52px;
+    background: rgba(8, 16, 40, 0.45);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.lead-form-input option {
+    color: #0f172a;
+}
+
 .form-message {
     padding: 12px;
     border-radius: 8px;
@@ -776,7 +793,7 @@ html {
     left: 0;
     right: 0;
     z-index: 1000;
-    height: 72px;
+    height: 116px;
     background: rgba(10, 18, 48, 0.55);
     backdrop-filter: blur(14px) saturate(160%);
     -webkit-backdrop-filter: blur(14px) saturate(160%);
@@ -789,7 +806,7 @@ html {
 }
 
 .site-header.is-scrolled {
-    height: 64px;
+    height: 102px;
     background: rgba(8, 12, 28, 0.93);
     border-bottom-color: rgba(255, 255, 255, 0.10);
     box-shadow:
@@ -812,13 +829,13 @@ html {
 /* ---- Логотип ---- */
 .logo-link {
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    margin-left: -24px;
     flex-shrink: 0;
     text-decoration: none;
     border-radius: 6px;
     outline: none;
-    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-glow {
@@ -837,7 +854,7 @@ html {
 }
 
 .site-logo {
-    height: 60px;
+    height: 140px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -845,17 +862,10 @@ html {
         brightness(1.25)
         contrast(1.15)
         drop-shadow(0 6px 18px rgba(0, 0, 0, .35));
-    transition: all .25s ease;
+    transition: transform .25s ease;
 }
 
-.logo-link:hover .site-logo {
-    filter:
-        brightness(1.35)
-        contrast(1.2)
-        drop-shadow(0 8px 22px rgba(0, 120, 255, .35));
-}
-
-.logo-link:hover {
+.site-logo:hover {
     transform: scale(1.05);
 }
 
@@ -1179,8 +1189,22 @@ html {
 
 /* ---- Адаптивность ---- */
 @media (max-width: 1024px) {
+    .site-header {
+        height: 98px;
+    }
+
+    .site-header.is-scrolled {
+        height: 88px;
+    }
+
     .site-logo {
-        height: 52px;
+        height: 106px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-logo {
+        height: 78px;
     }
 }
 
@@ -1196,19 +1220,23 @@ html {
 
 @media (max-width: 767px) {
     .site-header {
-        height: 60px;
+        height: 74px;
     }
 
     .site-header.is-scrolled {
-        height: 54px;
+        height: 66px;
     }
 
     .header-inner {
         padding: 0 16px;
     }
 
+    .logo-link {
+        margin-left: -10px;
+    }
+
     .site-logo {
-        height: 44px;
+        height: 78px;
     }
 
     .site-nav {
@@ -1222,17 +1250,24 @@ html {
 
 /* Отступ hero-секции под фиксированную шапку */
 #hero-section {
-    padding-top: calc(72px + 6rem);
+    padding-top: calc(116px + 6rem);
 }
 
 @media (max-width: 767px) {
     #hero-section {
-        padding-top: calc(60px + 4rem);
+        padding-top: calc(74px + 4rem);
     }
 }
 
 /* Якорный отступ для всех секций */
 section[id],
 footer[id] {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 120px;
+}
+
+@media (max-width: 767px) {
+    section[id],
+    footer[id] {
+        scroll-margin-top: 86px;
+    }
 }

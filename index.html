@@ -125,7 +125,7 @@
                     <p class="text-base opacity-80">
                         Работаем в сфере налогового и корпоративного консалтинга более 20 лет с гарантией результата.
                     </p>
-                    <a href="https://t.me/Centr_likv" target="_blank" class="btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg inline-block">
+                    <a href="#lead-form" class="btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg inline-block">
                         <span>ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</span>
                     </a>
                 </div>
@@ -499,6 +499,63 @@
                                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8e3c3f5e4f4a5c5e5e5e5e5e5e5e5e5e&amp;source=constructor" width="100%" height="450" loading="lazy" title="Карта офиса в Омске"></iframe>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lead-form" class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-effect rounded-3xl p-6 md:p-8 shadow-2xl lead-form-card">
+                        <div class="text-center mb-6">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-3">Оставьте заявку</h2>
+                            <p class="text-base md:text-lg opacity-80">Ответим в ближайшее время и подскажем оптимальный вариант решения.</p>
+                        </div>
+
+                        <div id="leadFormMessage" class="form-message" style="display: none;"></div>
+
+                        <form id="leadForm" class="space-y-4">
+                            <div>
+                                <label for="leadName" class="block mb-2 text-sm font-semibold">Имя</label>
+                                <input id="leadName" type="text" name="name" class="form-input lead-form-input" placeholder="Ваше имя">
+                            </div>
+
+                            <div>
+                                <label for="leadPhone" class="block mb-2 text-sm font-semibold">Телефон</label>
+                                <input id="leadPhone" type="tel" name="phone" class="form-input lead-form-input" placeholder="+7 (___) ___-__-__" required>
+                            </div>
+
+                            <div>
+                                <label for="leadService" class="block mb-2 text-sm font-semibold">Услуга</label>
+                                <select id="leadService" name="service" class="form-input lead-form-input" required>
+                                    <option value="">Выберите услугу</option>
+                                    <option value="Ликвидация фирмы">Ликвидация фирмы</option>
+                                    <option value="Реорганизация">Реорганизация</option>
+                                    <option value="Регистрация ООО">Регистрация ООО</option>
+                                    <option value="Изменения в ЕГРЮЛ">Изменения в ЕГРЮЛ</option>
+                                    <option value="Споры с ИФНС">Споры с ИФНС</option>
+                                    <option value="Другое">Другое</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="leadComment" class="block mb-2 text-sm font-semibold">Комментарий</label>
+                                <textarea id="leadComment" name="comment" rows="4" class="form-input lead-form-input" placeholder="Кратко опишите задачу"></textarea>
+                            </div>
+
+                            <label class="flex items-start gap-3 text-sm opacity-90">
+                                <input type="checkbox" name="policy" required class="mt-1">
+                                <span>
+                                    Согласен(на) с
+                                    <a href="#" class="policy-link" onclick="openPolicyModal(); return false;">политикой конфиденциальности</a>
+                                </span>
+                            </label>
+
+                            <button id="leadFormSubmit" type="submit" class="w-full btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-lg">
+                                <span id="leadFormSubmitText">Отправить заявку</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
