@@ -216,84 +216,166 @@ function closePolicyModal() {
 }
 
 // Service Detail Modal
-var serviceModalData = {
-    tax_disputes: {
-        title: 'Споры с ИФНС',
-        body: '<p>Сопровождение налоговых проверок, защита интересов клиента в ИФНС и арбитражных судах.</p>'
+var serviceModal = document.getElementById('serviceModal');
+var serviceModalTitle = document.getElementById('serviceModalTitle');
+var serviceModalContent = document.getElementById('serviceModalContent');
+var modalCloseButtons = serviceModal ? serviceModal.querySelectorAll('[data-close-modal]') : [];
+
+var serviceDetails = {
+    taxDisputes: {
+        title: 'Споры с ИФНС по налоговым проверкам',
+        content: `
+            <p>Сопровождаем клиентов в спорах с налоговыми органами по камеральным и выездным проверкам. Анализируем материалы проверки, выявляем риски, готовим правовую позицию и выстраиваем стратегию защиты интересов бизнеса.</p>
+            <p>Берём на себя подготовку пояснений, возражений, ответов на требования, жалоб и других процессуальных документов. При необходимости представляем интересы клиента в арбитражном суде.</p>
+            <ul>
+              <li>Правовой анализ претензий налогового органа</li>
+              <li>Подготовка возражений и жалоб</li>
+              <li>Сопровождение на стадии проверки и после неё</li>
+              <li>Защита интересов клиента в суде</li>
+            </ul>
+        `
     },
-    pretrial_settlement: {
-        title: 'Досудебное урегулирование',
-        body: '<p>Подготовка писем, возражений, жалоб, переговоры с налоговыми органами.</p>'
+    pretrialSettlement: {
+        title: 'Досудебное урегулирование споров с ИФНС',
+        content: `
+            <p>Помогаем урегулировать спор с налоговым органом до суда — грамотно, последовательно и с минимизацией рисков для компании. Готовим юридически выверенные документы и сопровождаем переговорный процесс.</p>
+            <p>Досудебный этап часто позволяет сократить финансовые потери, уточнить позицию инспекции и выстроить сильную доказательную базу для дальнейшей защиты интересов клиента.</p>
+            <ul>
+              <li>Подготовка писем, ответов, возражений и жалоб</li>
+              <li>Переговоры с налоговыми органами</li>
+              <li>Анализ позиции ИФНС и подготовка стратегии</li>
+              <li>Снижение вероятности судебного спора</li>
+            </ul>
+        `
     },
-    tax_optimization: {
+    taxOptimization: {
         title: 'Снижение налоговой нагрузки',
-        body: '<p>Разработка законных стратегий оптимизации налогов и финансовых потоков бизнеса.</p>'
+        content: `
+            <p>Разрабатываем законные и безопасные решения по снижению налоговой нагрузки для бизнеса с учётом специфики деятельности, структуры компании и текущих финансовых потоков.</p>
+            <p>Наша задача — не просто уменьшить налоги, а выстроить устойчивую и понятную модель работы, которая соответствует законодательству и снижает вероятность претензий со стороны ИФНС.</p>
+            <ul>
+              <li>Анализ текущей налоговой модели бизнеса</li>
+              <li>Поиск законных резервов для оптимизации</li>
+              <li>Подготовка рекомендаций по снижению нагрузки</li>
+              <li>Оценка налоговых рисков до внедрения решений</li>
+            </ul>
+        `
     },
     liquidation: {
         title: 'Ликвидация фирм',
-        body: '<p>Добровольная и упрощенная ликвидация компаний "под ключ".</p>'
+        content: `
+            <p>Оказываем полное сопровождение ликвидации юридических лиц — от первичной консультации и выбора оптимального варианта до завершения процедуры и подготовки необходимого пакета документов.</p>
+            <p>Подбираем подходящий формат закрытия компании с учётом её состояния, обязательств, бухгалтерии и возможных рисков. Работаем аккуратно, официально и в рамках действующего законодательства.</p>
+            <ul>
+              <li>Добровольная ликвидация</li>
+              <li>Упрощённая ликвидация</li>
+              <li>Подготовка и подача документов</li>
+              <li>Сопровождение процедуры "под ключ"</li>
+            </ul>
+        `
     },
     reorganization: {
         title: 'Реорганизация фирмы',
-        body: '<p>Слияние, разделение, выделение, присоединение и преобразование компаний.</p>'
+        content: `
+            <p>Сопровождаем все основные формы реорганизации юридических лиц: слияние, присоединение, разделение, выделение и преобразование. Помогаем выбрать оптимальную модель под цели бизнеса.</p>
+            <p>Готовим документы, контролируем соблюдение процедур и сроков, минимизируем юридические и регистрационные риски при изменении структуры компании.</p>
+            <ul>
+              <li>Слияние и присоединение</li>
+              <li>Разделение и выделение</li>
+              <li>Преобразование юридического лица</li>
+              <li>Подготовка полного комплекта документов</li>
+            </ul>
+        `
     },
-    registration: {
+    companyRegistration: {
         title: 'Создание компании',
-        body: '<p>Регистрация юридических лиц любой формы.</p>'
+        content: `
+            <p>Регистрируем юридические лица любой организационно-правовой формы и с любым количеством учредителей. Помогаем выбрать оптимальный формат регистрации под задачи бизнеса.</p>
+            <p>Сопровождаем клиента на всех этапах: от подготовки документов и выбора кодов деятельности до подачи заявления и получения регистрационных данных.</p>
+            <ul>
+              <li>Регистрация ООО и других форм юридических лиц</li>
+              <li>Подготовка учредительных документов</li>
+              <li>Консультации по выбору структуры компании</li>
+              <li>Сопровождение процедуры регистрации</li>
+            </ul>
+        `
     },
-    legal_services: {
+    legalServices: {
         title: 'Все виды юридических услуг',
-        body: '<p>Комплексное юридическое сопровождение бизнеса.</p>'
+        content: `
+            <p>Предоставляем комплексное юридическое сопровождение бизнеса и частных клиентов. Помогаем по корпоративным, договорным, регистрационным и иным правовым вопросам.</p>
+            <p>Выстраиваем работу так, чтобы клиент получал не просто разовую консультацию, а понятное практическое решение своей задачи с учётом сроков, рисков и результата.</p>
+            <ul>
+              <li>Юридические консультации</li>
+              <li>Подготовка и проверка документов</li>
+              <li>Сопровождение корпоративных вопросов</li>
+              <li>Правовая поддержка бизнеса на постоянной основе</li>
+            </ul>
+        `
     },
-    egrul_changes: {
-        title: 'Изменения в ЕГРЮЛ',
-        body: '<p>Подготовка документов и внесение изменений в государственные реестры.</p>'
+    registryChanges: {
+        title: 'Изменения в ЕГРЮЛ и ЕГРИП',
+        content: `
+            <p>Подготавливаем документы и сопровождаем внесение изменений в государственные реестры юридических лиц и индивидуальных предпринимателей. Работаем быстро, аккуратно и с учётом действующих требований.</p>
+            <p>Помогаем внести изменения в сведения о компании, составе участников, адресе, руководителе, видах деятельности и других регистрационных данных.</p>
+            <ul>
+              <li>Подготовка пакета документов</li>
+              <li>Сопровождение подачи изменений</li>
+              <li>Изменение сведений о компании и ИП</li>
+              <li><a href="#prices" class="modal-link">Перейти к ценам</a></li>
+            </ul>
+        `
     }
 };
 
 function openServiceModal(key) {
-    var data = serviceModalData[key];
-    if (!data) return;
-    document.getElementById('modalTitle').textContent = data.title;
-    document.getElementById('modalText').innerHTML = data.body;
-    document.getElementById('serviceModal').classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-}
-
-function openService(title, text) {
-    document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalText').innerHTML = text;
-    document.getElementById('serviceModal').classList.add('is-open');
+    if (!serviceModal || !serviceModalTitle || !serviceModalContent) return;
+    var item = serviceDetails[key];
+    if (!item) return;
+    serviceModalTitle.innerHTML = item.title;
+    serviceModalContent.innerHTML = item.content;
+    serviceModal.classList.add('is-open');
+    serviceModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 }
 
 function closeServiceModal() {
-    document.getElementById('serviceModal').classList.remove('is-open');
-    document.body.style.overflow = 'auto';
+    if (!serviceModal) return;
+    serviceModal.classList.remove('is-open');
+    serviceModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
 }
 
 document.querySelectorAll('.service-details-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-        var key = btn.dataset.service;
-        openServiceModal(key);
+        openServiceModal(btn.dataset.service);
     });
 });
 
-window.onclick = function(event) {
-    var consultModal = document.getElementById('consultationModal');
-    var policyModal = document.getElementById('policyModal');
-    var serviceModal = document.getElementById('serviceModal');
-    if (event.target === consultModal) closeModal();
-    if (event.target === policyModal) closePolicyModal();
-    if (event.target === serviceModal) closeServiceModal();
+modalCloseButtons.forEach(function(btn) {
+    btn.addEventListener('click', closeServiceModal);
+});
+
+if (serviceModalContent) {
+    serviceModalContent.addEventListener('click', function(event) {
+        var modalLink = event.target.closest('.modal-link');
+        if (!modalLink) return;
+        closeServiceModal();
+    });
 }
 
+window.addEventListener('click', function(event) {
+    var consultModal = document.getElementById('consultationModal');
+    var policyModal = document.getElementById('policyModal');
+    if (event.target === consultModal) closeModal();
+    if (event.target === policyModal) closePolicyModal();
+});
+
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-        closePolicyModal();
-        closeServiceModal();
-    }
+    if (event.key !== 'Escape') return;
+    if (serviceModal && serviceModal.classList.contains('is-open')) closeServiceModal();
+    closeModal();
+    closePolicyModal();
 });
 
 // Form Submission with Formspree
@@ -538,7 +620,7 @@ window.addEventListener('load', revealOnScroll);
 
     function shouldIgnore(e) {
         if (e.button === 2) return true;
-        if (e.target && e.target.closest && e.target.closest('.modal-content')) return true;
+        if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal'))) return true;
         return false;
     }
 
@@ -556,7 +638,7 @@ window.addEventListener('load', revealOnScroll);
         }, { capture: true, passive: true });
 
         document.addEventListener('touchstart', function(e) {
-            if (e.target && e.target.closest && e.target.closest('.modal-content')) return;
+            if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal'))) return;
             var touch = e.touches[0];
             if (touch) spawnRipple(touch.clientX, touch.clientY);
         }, { capture: true, passive: true });
