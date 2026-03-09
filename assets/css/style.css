@@ -228,6 +228,7 @@ body {
     width: 110%;
     height: 110%;
     object-fit: cover;
+    object-position: right center;
     transition: transform 0.5s ease;
     display: block;
     border: none;
