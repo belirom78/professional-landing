@@ -220,6 +220,8 @@ var serviceModal = document.getElementById('serviceModal');
 var serviceModalTitle = document.getElementById('serviceModalTitle');
 var serviceModalContent = document.getElementById('serviceModalContent');
 var modalCloseButtons = serviceModal ? serviceModal.querySelectorAll('[data-close-modal]') : [];
+var registryPriceModal = document.getElementById('registryPriceModal');
+var registryPriceCloseButtons = registryPriceModal ? registryPriceModal.querySelectorAll('[data-close-price-modal]') : [];
 
 var serviceDetails = {
     taxDisputes: {
@@ -346,6 +348,20 @@ function closeServiceModal() {
     document.body.style.overflow = '';
 }
 
+function openRegistryPriceModal() {
+    if (!registryPriceModal) return;
+    registryPriceModal.classList.add('is-open');
+    registryPriceModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRegistryPriceModal() {
+    if (!registryPriceModal) return;
+    registryPriceModal.classList.remove('is-open');
+    registryPriceModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
 document.querySelectorAll('.service-details-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         openServiceModal(btn.dataset.service);
@@ -354,6 +370,10 @@ document.querySelectorAll('.service-details-btn').forEach(function(btn) {
 
 modalCloseButtons.forEach(function(btn) {
     btn.addEventListener('click', closeServiceModal);
+});
+
+registryPriceCloseButtons.forEach(function(btn) {
+    btn.addEventListener('click', closeRegistryPriceModal);
 });
 
 if (serviceModalContent) {
@@ -373,6 +393,7 @@ window.addEventListener('click', function(event) {
 
 document.addEventListener('keydown', function(event) {
     if (event.key !== 'Escape') return;
+    if (registryPriceModal && registryPriceModal.classList.contains('is-open')) closeRegistryPriceModal();
     if (serviceModal && serviceModal.classList.contains('is-open')) closeServiceModal();
     closeModal();
     closePolicyModal();
@@ -620,7 +641,7 @@ window.addEventListener('load', revealOnScroll);
 
     function shouldIgnore(e) {
         if (e.button === 2) return true;
-        if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal'))) return true;
+        if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal') || e.target.closest('.price-modal'))) return true;
         return false;
     }
 
@@ -638,7 +659,7 @@ window.addEventListener('load', revealOnScroll);
         }, { capture: true, passive: true });
 
         document.addEventListener('touchstart', function(e) {
-            if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal'))) return;
+            if (e.target && e.target.closest && (e.target.closest('.modal-content') || e.target.closest('.service-modal') || e.target.closest('.price-modal'))) return;
             var touch = e.touches[0];
             if (touch) spawnRipple(touch.clientX, touch.clientY);
         }, { capture: true, passive: true });

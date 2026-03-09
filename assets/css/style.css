@@ -660,6 +660,159 @@ body {
     }
 }
 
+.price-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.price-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.price-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 12, 28, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.price-modal__dialog {
+    position: relative;
+    z-index: 2;
+    width: min(980px, calc(100% - 24px));
+    max-height: 88vh;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+        linear-gradient(180deg, rgba(91, 114, 160, 0.16), rgba(44, 56, 83, 0.24)),
+        rgba(19, 29, 52, 0.96);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.price-modal__close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(90deg);
+}
+
+.price-modal__badge {
+    display: inline-flex;
+    align-items: center;
+    margin: 28px 32px 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(94, 131, 255, 0.14);
+    border: 1px solid rgba(120, 160, 255, 0.2);
+    color: #d7e5ff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.price-modal__title {
+    margin: 0 32px 20px;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #fff;
+}
+
+.price-modal__table-wrap {
+    overflow: auto;
+    padding: 0 24px 28px;
+}
+
+.price-modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.price-modal__table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.price-modal__table tr:last-child td {
+    border-bottom: none;
+}
+
+.price-modal__table td:first-child {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.price-modal__table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .price-modal__dialog {
+        width: calc(100% - 12px);
+        max-height: 92vh;
+        border-radius: 18px;
+    }
+
+    .price-modal__badge {
+        margin: 20px 18px 10px;
+    }
+
+    .price-modal__title {
+        margin: 0 18px 18px;
+        font-size: 24px;
+    }
+
+    .price-modal__table-wrap {
+        padding: 0 12px 18px;
+    }
+
+    .price-modal__table td {
+        padding: 13px 12px;
+        font-size: 14px;
+    }
+
+    .price-modal__table td:last-child {
+        min-width: 110px;
+    }
+}
+
 .modal.is-open .modal-content {
     transform: translateY(0) scale(1);
     opacity: 1;
