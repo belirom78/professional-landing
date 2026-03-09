@@ -217,25 +217,52 @@ function closePolicyModal() {
 
 // Service Detail Modal
 var serviceModalData = {
+    tax_disputes: {
+        title: 'Споры с ИФНС',
+        body: '<p>Сопровождение налоговых проверок, защита интересов клиента в ИФНС и арбитражных судах.</p>'
+    },
+    pretrial_settlement: {
+        title: 'Досудебное урегулирование',
+        body: '<p>Подготовка писем, возражений, жалоб, переговоры с налоговыми органами.</p>'
+    },
+    tax_optimization: {
+        title: 'Снижение налоговой нагрузки',
+        body: '<p>Разработка законных стратегий оптимизации налогов и финансовых потоков бизнеса.</p>'
+    },
     liquidation: {
-        title: 'Ликвидация фирмы под ключ',
-        body: '<p>Закроем компанию официально и безопасно: анализ ситуации, подготовка документов, сопровождение этапов до результата.</p><p>Сроки обычно 2\u20134 месяца (зависит от ситуации).</p>'
+        title: 'Ликвидация фирм',
+        body: '<p>Добровольная и упрощенная ликвидация компаний "под ключ".</p>'
     },
     reorganization: {
         title: 'Реорганизация фирмы',
-        body: '<p>Подберём схему (слияние/присоединение/разделение/выделение), подготовим пакет документов и сопроводим регистрацию.</p><p>Сроки обычно 1\u20133 месяца.</p>'
+        body: '<p>Слияние, разделение, выделение, присоединение и преобразование компаний.</p>'
     },
     registration: {
-        title: 'Регистрация компании',
-        body: '<p>Поможем открыть ООО/ИП: ОКВЭД, система налогообложения, документы, подача и получение регистрации.</p><p>Сроки обычно 3\u20137 рабочих дней.</p>'
+        title: 'Создание компании',
+        body: '<p>Регистрация юридических лиц любой формы.</p>'
+    },
+    legal_services: {
+        title: 'Все виды юридических услуг',
+        body: '<p>Комплексное юридическое сопровождение бизнеса.</p>'
+    },
+    egrul_changes: {
+        title: 'Изменения в ЕГРЮЛ',
+        body: '<p>Подготовка документов и внесение изменений в государственные реестры.</p>'
     }
 };
 
 function openServiceModal(key) {
     var data = serviceModalData[key];
     if (!data) return;
-    document.getElementById('serviceModalTitle').textContent = data.title;
-    document.getElementById('serviceModalBody').innerHTML = data.body;
+    document.getElementById('modalTitle').textContent = data.title;
+    document.getElementById('modalText').innerHTML = data.body;
+    document.getElementById('serviceModal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+}
+
+function openService(title, text) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalText').innerHTML = text;
     document.getElementById('serviceModal').classList.add('is-open');
     document.body.style.overflow = 'hidden';
 }
@@ -244,6 +271,13 @@ function closeServiceModal() {
     document.getElementById('serviceModal').classList.remove('is-open');
     document.body.style.overflow = 'auto';
 }
+
+document.querySelectorAll('.service-details-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var key = btn.dataset.service;
+        openServiceModal(key);
+    });
+});
 
 window.onclick = function(event) {
     var consultModal = document.getElementById('consultationModal');
