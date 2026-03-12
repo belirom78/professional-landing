@@ -1,6 +1,5 @@
 ﻿const isMobile = window.innerWidth <= 768;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const WEBHOOK_URL = "https://YOUR-WEBHOOK-URL";
 
 // UTM Parameters Capture
 (function() {
@@ -415,143 +414,98 @@ document.addEventListener('keydown', function(event) {
     closePolicyModal();
 });
 
-// Form Submission with Formspree
-async function handleSubmit(event) {
-    event.preventDefault();
+function getFormMessageElement(form) {
+    if (form.id === 'leadForm') return document.getElementById('leadFormMessage');
+    if (form.id === 'consultationForm') return document.getElementById('formMessage');
 
-    const form = event.target;
-    const submitBtn = document.getElementById('submitBtn');
-    const submitBtnText = document.getElementById('submitBtnText');
-    const messageDiv = document.getElementById('formMessage');
-    const formAction = form.action;
+    const siblingMessage = form.previousElementSibling;
+    if (siblingMessage && siblingMessage.classList.contains('form-message')) return siblingMessage;
 
-    // Check if endpoint is configured
-    if (formAction.includes('XXXXYYYY')) {
-        showMessage('Необходимо настроить Formspree endpoint. Замените XXXXYYYY на ваш код формы.', 'info');
-        return;
+    return null;
+}
+
+function showFormMessage(form, text, type) {
+    const messageDiv = getFormMessageElement(form);
+    if (!messageDiv) return;
+    messageDiv.textContent = text;
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.style.display = 'block';
+}
+
+function hideFormMessage(form) {
+    const messageDiv = getFormMessageElement(form);
+    if (!messageDiv) return;
+    messageDiv.style.display = 'none';
+}
+
+function setSubmitState(submitBtn, submitText, isLoading) {
+    if (!submitBtn || !submitText) return;
+
+    if (!submitText.dataset.defaultText) {
+        submitText.dataset.defaultText = submitText.textContent;
     }
 
-    // Disable button
-    submitBtn.disabled = true;
-    submitBtnText.innerHTML = '<span class="spinner"></span> Отправляем...';
-    hideMessage();
+    submitBtn.disabled = isLoading;
+    if (isLoading) {
+        submitText.innerHTML = '<span class="spinner"></span> Отправляем...';
+    } else {
+        submitText.textContent = submitText.dataset.defaultText;
+    }
+}
 
-    try {
-        const formData = new FormData(form);
+(function initTelegramForms() {
+    const forms = Array.from(document.querySelectorAll('form')).filter(function(form) {
+        return form.querySelector('[name="name"]') && form.querySelector('[name="phone"]');
+    });
 
-        const response = await fetch(formAction, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+    forms.forEach(function(form) {
+        if (form.dataset.telegramBound === '1') return;
+        form.dataset.telegramBound = '1';
+        form.setAttribute('action', 'send.php');
+        form.setAttribute('method', 'POST');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            hideFormMessage(form);
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const submitBtn = event.submitter || form.querySelector('button[type="submit"], input[type="submit"]');
+            const submitText = submitBtn ? (submitBtn.querySelector('span') || submitBtn) : null;
+            setSubmitState(submitBtn, submitText, true);
+
+            try {
+                const endpoint = form.getAttribute('action') || 'send.php';
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                let result = null;
+                try {
+                    result = await response.json();
+                } catch (_) {
+                    result = null;
+                }
+
+                if (!response.ok || !result || !result.success) {
+                    throw new Error('Send failed');
+                }
+
+                showFormMessage(form, 'Заявка отправлена', 'success');
+                form.reset();
+            } catch (error) {
+                showFormMessage(form, 'Ошибка отправки. Попробуйте ещё раз', 'error');
+            } finally {
+                setSubmitState(submitBtn, submitText, false);
             }
         });
-
-        if (response.ok) {
-            showMessage('Заявка отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
-            form.reset();
-
-            setTimeout(() => {
-                closeModal();
-                hideMessage();
-            }, 1500);
-        } else {
-            throw new Error('Server error');
-        }
-    } catch (error) {
-        showMessage('Не удалось отправить заявку. Попробуйте позже или позвоните нам.', 'error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtnText.textContent = 'Отправить заявку';
-    }
-}
-
-function showMessage(text, type) {
-    const messageDiv = document.getElementById('formMessage');
-    messageDiv.textContent = text;
-    messageDiv.className = `form-message ${type}`;
-    messageDiv.style.display = 'block';
-}
-
-function hideMessage() {
-    const messageDiv = document.getElementById('formMessage');
-    messageDiv.style.display = 'none';
-}
-
-function showLeadFormMessage(text, type) {
-    const messageDiv = document.getElementById('leadFormMessage');
-    if (!messageDiv) return;
-    messageDiv.textContent = text;
-    messageDiv.className = `form-message ${type}`;
-    messageDiv.style.display = 'block';
-}
-
-function hideLeadFormMessage() {
-    const messageDiv = document.getElementById('leadFormMessage');
-    if (!messageDiv) return;
-    messageDiv.style.display = 'none';
-}
-
-function sanitizePhone(phone) {
-    return String(phone || '').replace(/\D/g, '');
-}
-
-(function initLeadForm() {
-    const form = document.getElementById('leadForm');
-    if (!form) return;
-
-    const submitBtn = document.getElementById('leadFormSubmit');
-    const submitBtnText = document.getElementById('leadFormSubmitText');
-
-    form.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        hideLeadFormMessage();
-
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
-        const phone = form.phone ? form.phone.value : '';
-        const normalizedPhone = sanitizePhone(phone);
-        if (normalizedPhone.length < 10) {
-            showLeadFormMessage('������ ��������. ���������� ����� ��� �������� � Telegram.', 'error');
-            if (form.phone) form.phone.focus();
-            return;
-        }
-
-        const payload = {
-            name: (form.name ? form.name.value : '').trim(),
-            phone: phone.trim(),
-            service: (form.service ? form.service.value : '').trim(),
-            comment: (form.comment ? form.comment.value : '').trim(),
-            page: location.href,
-            ts: new Date().toISOString()
-        };
-
-        submitBtn.disabled = true;
-        submitBtnText.innerHTML = '<span class="spinner"></span> ����������...';
-
-        try {
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) throw new Error('Webhook request failed');
-
-            form.reset();
-            showLeadFormMessage('������ ����������, �� �������� � ����.', 'success');
-        } catch (error) {
-            showLeadFormMessage('������ ��������. ���������� ����� ��� �������� � Telegram.', 'error');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtnText.textContent = '��������� ������';
-        }
     });
 })();
 

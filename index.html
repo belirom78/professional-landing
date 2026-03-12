@@ -579,7 +579,7 @@
 
                         <div id="leadFormMessage" class="form-message" style="display: none;"></div>
 
-                        <form id="leadForm" class="space-y-4">
+                        <form id="leadForm" class="space-y-4" action="send.php" method="POST">
                             <div>
                                 <label for="leadName" class="block mb-2 text-sm font-semibold">Имя</label>
                                 <input id="leadName" type="text" name="name" class="form-input lead-form-input" placeholder="Ваше имя">
@@ -751,7 +751,7 @@
             
             <div id="formMessage" style="display: none;"></div>
             
-            <form id="consultationForm" action="https://formspree.io/f/XXXXYYYY" method="POST" onsubmit="handleSubmit(event)">
+            <form id="consultationForm" action="send.php" method="POST">
                 <div class="space-y-4">
                     <div>
                         <label class="block mb-2 text-sm font-semibold">Ваше имя</label>
